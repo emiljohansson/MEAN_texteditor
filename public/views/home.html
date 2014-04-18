@@ -1,0 +1,7 @@
+<h1>{{title}}</h1>
+<div ng-repeat="text in content track by $index">
+	<div>
+		{{$index}}: <span ng-model="content[$index]" ng-click="startEdit($index)" contentEditable="true">{{text}}</span>
+	</div>
+</div>
+<input id="ctrl-editor" ng-model="editor" style="width: 100%;">

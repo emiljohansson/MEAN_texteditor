@@ -8,16 +8,16 @@ var db		= require('./config/db');
 mongoose.connect(db.url);
 
 app.configure(function() {
-	app.use(express.static(__dirname + '/public')); 	// set the static files location /public/img will be /img for users
-	app.use(express.logger('dev')); 					// log every request to the console
-	app.use(express.bodyParser()); 						// have the ability to pull information from html in POST
-	app.use(express.methodOverride()); 					// have the ability to simulate DELETE and PUT
+	app.use(express.static(__dirname + '/public'));
+	app.use(express.logger('dev'));
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
 });
 
 // routes ==================================================
-require('./app/routes')(app); // configure our routes
+require('./app/routes')(app);
 
 // start app ===============================================
-app.listen(port);										// startup our app at http://localhost:8080
-console.log('Magic happens on port ' + port); 			// shoutout to the user
-exports = module.exports = app; 						// expose app
+app.listen(port);
+console.log('Magic happens on port ' + port);
+exports = module.exports = app;
